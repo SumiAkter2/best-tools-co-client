@@ -1,9 +1,10 @@
 import React from 'react';
+import CardProduct from './CardProduct';
 
 const Tools = () => {
     return (
         <div>
-            <h1>Tools</h1>
+            {/* <CardProduct></CardProduct> */}
         </div>
     );
 };
