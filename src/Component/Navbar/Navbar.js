@@ -25,7 +25,7 @@ const Navbar = ({ children }) => {
                                 <li><NavLink className='rounded-lg' to='/tools'>Tools</NavLink></li>
                                 <li><NavLink className='rounded-lg' to='/summary'>Summary</NavLink></li>
 
-
+                                <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>
 
 
                                 <label class='swap swap-rotate'>
@@ -64,6 +64,7 @@ const Navbar = ({ children }) => {
                         <li><NavLink className='rounded-lg' to='/blogs'>Blogs</NavLink></li>
                         <li><NavLink className='rounded-lg' to='/tools'>Tools</NavLink></li>
                         <li><NavLink className='rounded-lg' to='/summary'>Summary</NavLink></li>
+                        <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>
 
                     </ul>
 

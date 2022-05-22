@@ -17,28 +17,28 @@ const Bannar = () => {
             </div>
             {/* card item */}
             <div className='rounded-2xl mx-auto mt-[-50px] relative z-20 bg-base-200 shadow-lg  w-3/4' >
-                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4   '>
+                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-12 pt-4'>
 
 
                     <figure >
-                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded-lg' />
+                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded-2xl' />
                         <h1>Driller</h1>
                     </figure>
 
 
 
                     <figure >
-                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded - lg' />
+                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded - 2xl' />
                         <h1>Driller</h1>
                     </figure>
 
                     <figure >
-                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded-lg' />
+                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded-2xl' />
                         <h1>Driller</h1>
                     </figure>
 
                     <figure >
-                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded-lg' />
+                        <img style={{ 'width': '200px' }} src={img1} alt="Shoes" className='rounded-2xl' />
                         <h1>Driller</h1>
                     </figure>
 
