@@ -1,0 +1,42 @@
+[
+    {
+        "_id": 1,
+        "price": "3000 tk",
+        "picture": "tools-1.png",
+        "description": "This is luxury car.its ",
+        "quantity": 100,
+        "name": " addmision"
+    },
+    {
+        "_id": 1,
+        "price": "3000 tk",
+        "picture": "tools-1.png",
+        "description": "This is luxury car.its ",
+        "quantity": 100,
+        "name": " addmision"
+    },
+    {
+        "_id": 1,
+        "price": "3000 tk",
+        "picture": "img-2.png",
+        "description": "This is luxury car.its.",
+        "quantity": 100,
+        "name": " addmision"
+    },
+    {
+        "_id": 1,
+        "price": "3000 tk",
+        "picture": "tools-1.png",
+        "description": "This is luxury car.its looks.",
+        "quantity": 100,
+        "name": " addmision"
+    },
+    {
+        "_id": 1,
+        "price": "3000 tk",
+        "picture": "tools-1.png",
+        "description": "This is luxury car.its ",
+        "quantity": 100,
+        "name": " addmision"
+    }
+]
