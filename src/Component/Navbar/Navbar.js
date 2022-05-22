@@ -1,7 +1,14 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 import b from '../../asset/icon-b.png'
+import auth from '../../firebase.init';
 const Navbar = ({ children }) => {
+    const [user] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+    };
     return (
         <div >
             <div class="drawer drawer-end fixed top-0">
@@ -25,7 +32,10 @@ const Navbar = ({ children }) => {
                                 <li><NavLink className='rounded-lg' to='/tools'>Tools</NavLink></li>
                                 <li><NavLink className='rounded-lg' to='/summary'>Summary</NavLink></li>
 
-                                <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>
+                                {
+                                    user && <li><NavLink className='rounded-lg' to='/purchase'>Purchase</NavLink></li>
+                                }
+                                {user ? <li><button className='bg-primary rounded-lg' onClick={logout}>Sign Out</button></li> : <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>}
 
 
                                 <label class='swap swap-rotate'>
