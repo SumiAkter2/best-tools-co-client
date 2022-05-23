@@ -27,13 +27,15 @@ const Navbar = ({ children }) => {
                         <div className="flex-none hidden lg:block  ">
                             <ul className="menu  menu-horizontal gap-x-2  ">
                                 <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
-                                <li><NavLink className='rounded-lg' to='/reviews'>Reviews</NavLink></li>
+
                                 <li><NavLink className='rounded-lg' to='/blogs'>Blogs</NavLink></li>
-                                <li><NavLink className='rounded-lg' to='/tools'>Tools</NavLink></li>
-                                <li><NavLink className='rounded-lg' to='/summary'>Summary</NavLink></li>
+
 
                                 {
                                     user && <li><NavLink className='rounded-lg' to='/purchase'>Purchase</NavLink></li>
+                                }
+                                {
+                                    user && <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
                                 }
                                 {user ? <li><button className='bg-primary rounded-lg' onClick={logout}>Sign Out</button></li> : <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>}
 
@@ -70,11 +72,16 @@ const Navbar = ({ children }) => {
                     <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
 
                         <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
-                        <li><NavLink className='rounded-lg' to='/reviews'>Reviews</NavLink></li>
+
                         <li><NavLink className='rounded-lg' to='/blogs'>Blogs</NavLink></li>
-                        <li><NavLink className='rounded-lg' to='/tools'>Tools</NavLink></li>
-                        <li><NavLink className='rounded-lg' to='/summary'>Summary</NavLink></li>
-                        <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>
+                        {
+                            user && <li><NavLink className='rounded-lg' to='/purchase'>Purchase</NavLink></li>
+                        }
+                        {
+                            user && <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
+                        }
+
+                        {user ? <li><button className='bg-primary rounded-lg' onClick={logout}>Sign Out</button></li> : <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>}
 
                     </ul>
 
