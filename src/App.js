@@ -14,6 +14,7 @@ import RequireAuth from './Component/RequireAuth';
 import Purchase from './Component/Navbar/Purchase';
 import CardProduct from './Component/CardProduct';
 import Products from './Component/Products';
+import NotFound from './Component/NotFound';
 
 function App() {
   return (
@@ -32,13 +33,15 @@ function App() {
               <Products></Products>
             </RequireAuth>
           }></Route>
-          <Route path='/purchase' element={
+
+          <Route path='/products/:productId' element={
 
             <RequireAuth>
               <Purchase />
             </RequireAuth>
           }></Route>
           <Route path='/summary' element={<Summary />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
         </Routes>
         <Footer></Footer>
       </Navbar>

@@ -1,34 +1,31 @@
 import React from 'react';
 
-const Reviewers = ({ reviewer }) => {
+const Reviewers = ({ review }) => {
     return (
-        <div className='mt-12'>
-            <div className='flex justify-center '>
-                <img class="mask mask-heart" src="https://api.lorem.space/image/shoes?w=60&h=60" />
-
-                <div className='text-left pl-2'>
-                    <h1>{reviewer.name}</h1>
-                    <h1>{reviewer.descriotion}</h1>
-                    <div class="rating rating-sm rating-half ">
-                        <p className='text-yellow-800 text-left' >4.8</p>
-                        <input type="radio" name="rating-10" class="rating-hidden" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-1" checked />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-2" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-1" />
-                        <input type="radio" name="rating-10" class="bg-yellow-500 mask mask-star-2 mask-half-2" />
-
+        <div className="card lg:max-w-lg bg-base-100 shadow-lg border-4">
+            <div className="card-body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates quo incidunt harum minus mollitia!</p>
+                <div className="flex items-center">
+                    <div className="avatar">
+                        <div className="w-16 rounded-full ring ring-primary ring-offset-base-100 mr-5">
+                            <img src={review.img} alt="" />
+                        </div>
                     </div>
+                    <div>
+                        <h4 className='text-xl'>{review.name}</h4>
+                        <p>{review.location}</p>
+                        <div class="rating text-xl">
 
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" checked />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
+
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
         </div>
     );
 };
