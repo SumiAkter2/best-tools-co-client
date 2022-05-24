@@ -1,5 +1,7 @@
 import React from 'react';
+import Arrival from './Arrival';
 import Bannar from './Bannar';
+import Hotdeels from './Hotdeels';
 import Products from './Products';
 import Reviews from './Reviews';
 import Subcrib from './Subcrib';
@@ -15,6 +17,8 @@ const Home = () => {
             <Products></Products>
             <Summary></Summary>
             <Reviews></Reviews>
+            <Hotdeels></Hotdeels>
+            <Arrival></Arrival>
             <Subcrib></Subcrib>
         </div>
     );

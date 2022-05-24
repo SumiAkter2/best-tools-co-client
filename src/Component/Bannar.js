@@ -8,19 +8,21 @@ import img7 from '../asset/img18.jpg';
 const Bannar = () => {
     return (
         <div className='relative z-10'>
-            <div className="hero lg:h-[70vh] bg-primary ">
-                <div className="hero-content flex-col lg:flex-row">
 
-                    <div className='max-w-6xl  text-left'>
-                        <h1 className="text-2xl   font-bold">DISCOVER OUR YOUR  BEST TOOLS!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-secondary">Get Started</button>
+            <div class="hero  h-[80vh]" style={{ "background-image": "url('img9.jpg')" }}>
+                <div class="hero-overlay  bg-opacity-20"></div>
+                <div class="hero-content text-center text-secondary">
+                    <div class="max-w-md">
+                        <h1 class=" text-5xl text-white font-bold">We Provide The Best Product
+
+                        </h1>
+
+
                     </div>
-                    <img src={banner} className="h-[50vh]  rounded-md  shrink-0" alt='banner-image' />
                 </div>
             </div>
             {/* card item */}
-            <div className='rounded-2xl mx-auto mt-[-50px] relative z-20 bg-base-200 shadow-lg  w-3/4' >
+            <div className='rounded-2xl mx-auto mt-[-50px] relative z-20 bg-base-300 shadow-lg  w-3/4' >
                 <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  px-12 pt-4'>
 
 
