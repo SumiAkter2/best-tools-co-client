@@ -1,4 +1,5 @@
 import React from 'react';
+import About from './About';
 import Arrival from './Arrival';
 import Bannar from './Bannar';
 import Hotdeels from './Hotdeels';
@@ -17,6 +18,7 @@ const Home = () => {
             <Products></Products>
             <Summary></Summary>
             <Reviews></Reviews>
+            <About></About>
             <Hotdeels></Hotdeels>
             <Arrival></Arrival>
             <Subcrib></Subcrib>

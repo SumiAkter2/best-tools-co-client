@@ -1,7 +1,7 @@
 import React from 'react';
 import banner from '../asset/ronix-tools-Nn2mg1lUbZc-unsplash.jpg'
 import img1 from '../asset/img19.jpg'
-import img11 from '../asset/img7.jpg'
+import img11 from '../asset/img8.jpg'
 import img12 from '../asset/img15.jpg'
 import img7 from '../asset/img18.jpg';
 
