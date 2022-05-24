@@ -4,21 +4,20 @@ import Navbar from './Component/Navbar/Navbar';
 import Home from './Component/Home';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import Blogs from './Component/Blogs';
-import Reviews from './Component/Reviews';
+
 import LogIn from './Component/LogIn';
 import Tools from './Component/Tools';
 import Footer from './Component/Footer';
 import Summary from './Component/Summary';
 import SignIn from './Component/SignIn';
 import RequireAuth from './Component/RequireAuth';
-import Purchase from './Component/Navbar/Purchase';
-import CardProduct from './Component/CardProduct';
 import Products from './Component/Products';
 import NotFound from './Component/NotFound';
 import DashBoard from './Component/DashBoard/DashBoard';
 import MyProfile from './Component/DashBoard/MyProfile';
 import MyOrder from './Component/DashBoard/MyOrder';
 import AddReview from './Component/DashBoard/AddReview';
+import ProductDetails from './Component/ProductDetails';
 
 function App() {
   return (
@@ -41,7 +40,8 @@ function App() {
           <Route path='products/:productId' element={
 
             <RequireAuth>
-              <Purchase />
+
+              <ProductDetails></ProductDetails>
             </RequireAuth>
           }></Route>
 

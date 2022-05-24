@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Spinner from '../Component/Spinner';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../Hooks/useToken';
 
 const SignIn = () => {
+    // const [user1, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const navigate = useNavigate();
     const [
         createUserWithEmailAndPassword,
         user,
@@ -15,24 +16,39 @@ const SignIn = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+    const [token] = useToken(user);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/"
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true })
+        }
+    }, [from, navigate, token])
+
     let signInError;
-    if (error) {
-        signInError = <p className='text-red-500'><small>{error?.message}</small></p>
-    }
-    if (loading) {
-        return (<Spinner></Spinner>)
-    }
-    if (user) {
 
-        return navigate = '/tools'
-
+    if (loading || updating) {
+        return <Spinner></Spinner>
     }
+
+    if (error || updateError) {
+        signInError = <p className='text-red-500'><small>{error?.message || updateError?.message}</small></p>
+    }
+
+    // if (token) {
+    //     navigate('/products');
+    // }
+
+
     const onSubmit = async data => {
-
         await createUserWithEmailAndPassword(data.email, data.password);
-
+        await updateProfile({ displayName: data.name });
         console.log('update done');
-        navigate('/tools');
     }
 
     return (
@@ -120,5 +136,6 @@ const SignIn = () => {
         </div>
     );
 };
+
 
 export default SignIn;

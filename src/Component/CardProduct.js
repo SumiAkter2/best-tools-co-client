@@ -5,23 +5,23 @@ const CardProduct = ({ product }) => {
     const { _id } = product;
     const navigate = useNavigate();
 
-    const navigateToServiceDetail = id => {
-        navigate(`/products/:${id}`);
+    const handleToDetail = id => {
+        navigate(`products/${id}`)
     }
 
     return (
         <div>
-            <div class="card card-compact  bg-base-100 ">
-                <figure><img src={product?.picture}
+            <div className="card card-compact  bg-base-100 ">
+                <figure><img style={{ 'width': '150px' }} src={product?.picture}
 
                     alt="products" /></figure>
-                <div class="card-body text-left">
-                    <h2 class="card-title">{product.name}</h2>
+                <div className="card-body text-left">
+                    <h2 className="card-title">{product.name}</h2>
                     <p>{product.description}</p>
-
-
-
-                    <button onClick={() => navigateToServiceDetail(_id)} class="btn btn-primary">Purchase</button>
+                    <p>price:  {product.price} </p>
+                    <p>Quantity: {product.quantity} </p>
+                    <p>Avl: {product.avl} </p>
+                    <button onClick={() => handleToDetail(_id)} className="btn btn-primary">Purchase</button>
 
                 </div>
             </div>

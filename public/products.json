@@ -1,82 +1,66 @@
 [
     {
-        "_id": 5,
-        "price": "3000 tk/pc",
-        "picture": "img7.jpg",
-        "description": "This is luxury car.its ",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 220/pc",
+        "picture": "imgg1.jpg",
+        "description": " 60Watt, Iron Stand, Soldering Wire. ",
+        "quantity": 300,
+        "name": "Solder iron",
+        "avl": 20000
     },
     {
-        "_id": 6,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img8.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 300/pc",
+        "picture": "imgg8.jpg",
+        "description": "WORX WG305.1 8 Amp 14 Electric Chainsaw.",
+        "quantity": 400,
+        "name": "E. Saw",
+        "avl": 30000
     },
     {
-        "_id": 7,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img9.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 100/pc",
+        "picture": "imgg9.jpg",
+        "description": "Delta 1343236 Open-End Wrench.",
+        "quantity": 500,
+        "name": " Wrench",
+        "avl": 50000
     },
     {
-        "_id": 8,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img10.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 120/pc",
+        "picture": "imgg10.jpg",
+        "description": "CRAFTSMAN Ratchet Wrench, 3/8-Inch Drive.",
+        "quantity": 400,
+        "name": " Ratchet Wrench ",
+        "avl": 40000
     },
     {
-        "_id": 9,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img11.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 5/pc",
+        "picture": "imgg5.jpg",
+        "description": " Hardware Assortment Kit with Screws, Nuts, Bolts & Washers.",
+        "quantity": 1000,
+        "name": " Nuts & Bolt",
+        "avl": 100000
     },
     {
-        "_id": 10,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img12.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 500/pc",
+        "picture": "imgg3.jpg",
+        "description": "BLACK+DECKER 20V MAX* POWERE CONNECT Cordless Drill/Driver.",
+        "quantity": 300,
+        "name": "E. Driller",
+        "avl": 50000
     },
     {
-        "_id": 11,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img14.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 500/pc",
+        "picture": "imgg19.jpg",
+        "description": "7 Inch, stainless steel .",
+        "quantity": 500,
+        "name": "CYlinder",
+        "avl": 80000
     },
     {
-        "_id": 12,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img15.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
-    },
-    {
-        "_id": 13,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img18.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
-    },
-    {
-        "_id": 14,
-        "price": "3000 tk/pc",
-        "picture": "../src/asset/img19.jpg",
-        "description": "This is luxury car.its looks.",
-        "quantity": 100,
-        "name": " Driller"
+        "price": "$ 550/pc",
+        "picture": "imgg11.jpg",
+        "description": "80Watt, Iron Stand, Soldering Wire..",
+        "quantity": 300,
+        "name": "Solder iron",
+        "avl": 40000
     }
 ]

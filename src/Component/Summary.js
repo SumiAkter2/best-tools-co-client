@@ -6,14 +6,27 @@ const Summary = () => {
 
         <div>
 
-            <CountdownCircleTimer
-                isPlaying
-                duration={7}
-                colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-                colorsTime={[7, 5, 2, 0]}
-            >
-                {({ remainingTime }) => remainingTime}
-            </CountdownCircleTimer>
+            <div class="stats stats-vertical lg:stats-horizontal shadow">
+
+                <div class="stat">
+                    <div class="stat-title">Total Production cost</div>
+                    <div class="stat-value">$720000</div>
+                    <div class="stat-desc">Jan 2021 - Feb 2022</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-title">Sold </div>
+                    <div class="stat-value">$980000</div>
+                    <div class="stat-desc">1 year</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-title">Happy Client</div>
+                    <div class="stat-value">1,200</div>
+                    <div class="stat-desc">With Best Review</div>
+                </div>
+
+            </div>
         </div>
 
     );

@@ -14,13 +14,13 @@ const Reviewers = ({ review }) => {
                     <div>
                         <h4 className='text-xl'>{review.name}</h4>
                         <p>{review.location}</p>
-                        <div class="rating text-xl">
+                        <div className="rating text-xl">
 
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" checked />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-500" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-500" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-500" checked />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-500" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-500" />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-500" />
 
                         </div>
                     </div>

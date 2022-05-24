@@ -6,41 +6,42 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import g from '../asset/Google.jpg';
+import useToken from '../Hooks/useToken';
 
 const Login = () => {
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
-        user1,
-        loading1,
-        error1,
+        user,
+        loading,
+        error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [token] = useToken(user || gUser);
+
+    let signInError;
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+
     useEffect(() => {
-        if (user || user1) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, user1, from, navigate])
+    }, [token, from, navigate])
+
+    if (loading || gLoading) {
+        return <Spinner></Spinner>
+    }
+
+    if (error || gError) {
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
+    }
 
     const onSubmit = data => {
-
-
         signInWithEmailAndPassword(data.email, data.password);
-        console.log(data.email, data.password);
-        // navigate('/appointment');
-    };
-
-    let signInError;
-    if (error || error1) {
-        signInError = <p className='text-red-500'><small>{error?.message || error1?.message}</small></p>
     }
-    if (loading || loading1) {
-        return (<Spinner></Spinner>)
-    }
-
 
     return (
         <div className='flex justify-center item-center  bg-inherit my-12'>

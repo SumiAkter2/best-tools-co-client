@@ -4,10 +4,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 import b from '../../asset/icon-b.png'
 import auth from '../../firebase.init';
+
 const Navbar = ({ children }) => {
     const [user] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
+        localStorage.setItem('accessToken')
     };
     return (
         <div >
@@ -20,7 +22,7 @@ const Navbar = ({ children }) => {
                             <img style={{ 'width': '20px', 'color': 'red' }} src={b} alt="" /> Best Tools co.</div>
                         <div className="flex-none lg:hidden">
                             <label for="my-drawer-3" className="btn btn-square btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
                         </div>
 
@@ -31,13 +33,13 @@ const Navbar = ({ children }) => {
                                 <li><NavLink className='rounded-lg' to='/blogs'>Blogs</NavLink></li>
 
 
-                                {
+                                {/* {
                                     user && <li><NavLink className='rounded-lg' to='/purchase'>Purchase</NavLink></li>
-                                }
+                                } */}
                                 {
                                     user && <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
                                 }
-                                {user ? <li><button className='bg-primary rounded-lg' onClick={logout}>Sign Out</button></li> : <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>}
+                                {user ? <><li><button className='bg-primary rounded-lg' onClick={logout}>Sign Out</button></li>  <li> <button>{user?.displayName}</button></li></> : <li><NavLink className='rounded-lg' to='/login'>Log In</NavLink></li>}
 
 
                                 <label className='swap swap-rotate'>
@@ -74,9 +76,9 @@ const Navbar = ({ children }) => {
                         <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
 
                         <li><NavLink className='rounded-lg' to='/blogs'>Blogs</NavLink></li>
-                        {
+                        {/* {
                             user && <li><NavLink className='rounded-lg' to='/purchase'>Purchase</NavLink></li>
-                        }
+                        } */}
                         {
                             user && <li><NavLink className='rounded-lg' to='/dashboard'>Dashboard</NavLink></li>
                         }

@@ -8,15 +8,15 @@ import img7 from '../asset/img18.jpg';
 const Bannar = () => {
     return (
         <div className='relative z-10'>
-            <div class="hero lg:h-[70vh] bg-primary ">
-                <div class="hero-content flex-col lg:flex-row">
+            <div className="hero lg:h-[70vh] bg-primary ">
+                <div className="hero-content flex-col lg:flex-row">
 
                     <div className='max-w-6xl  text-left'>
-                        <h1 class="text-2xl   font-bold">DISCOVER OUR YOUR  BEST TOOLS!</h1>
-                        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button class="btn btn-secondary">Get Started</button>
+                        <h1 className="text-2xl   font-bold">DISCOVER OUR YOUR  BEST TOOLS!</h1>
+                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <button className="btn btn-secondary">Get Started</button>
                     </div>
-                    <img src={banner} class="h-[50vh]  rounded-md  shrink-0" alt='banner-image' />
+                    <img src={banner} className="h-[50vh]  rounded-md  shrink-0" alt='banner-image' />
                 </div>
             </div>
             {/* card item */}
