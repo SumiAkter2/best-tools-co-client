@@ -23,7 +23,9 @@ module.exports = {
 
           "error": "#F87272",
         },
+
       },
+      "dark",
     ],
   },
   plugins: [require("daisyui")],

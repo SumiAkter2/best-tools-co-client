@@ -30,12 +30,12 @@ function App() {
 
           <Route path='login' element={<LogIn></LogIn>}></Route>
           <Route path='signin' element={<SignIn></SignIn>}></Route>
-          <Route path='tools' element={
+          {/* <Route path='tools' element={
 
             <RequireAuth>
               <Products></Products>
             </RequireAuth>
-          }></Route>
+          }></Route> */}
 
           <Route path='products/:productId' element={
 
@@ -45,7 +45,7 @@ function App() {
             </RequireAuth>
           }></Route>
 
-          <Route path='dashboard' element={<DashBoard />}>
+          <Route path='dashboard' element={<RequireAuth><DashBoard /></RequireAuth>}>
             <Route index element={<MyProfile></MyProfile>}></Route>
             <Route path='order' element={<MyOrder />}></Route>
             <Route path='review' element={<AddReview></AddReview>}></Route>

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Spinner from '../Component/Spinner';
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../Hooks/useToken';
 
 const SignIn = () => {
@@ -21,14 +21,7 @@ const SignIn = () => {
     const [token] = useToken(user);
 
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/"
 
-    useEffect(() => {
-        if (token) {
-            navigate(from, { replace: true })
-        }
-    }, [from, navigate, token])
 
     let signInError;
 
@@ -40,15 +33,14 @@ const SignIn = () => {
         signInError = <p className='text-red-500'><small>{error?.message || updateError?.message}</small></p>
     }
 
-    // if (token) {
-    //     navigate('/products');
-    // }
-
-
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         console.log('update done');
+    }
+    if (token) {
+        navigate('/dashboard');
+        console.log(token);
     }
 
     return (

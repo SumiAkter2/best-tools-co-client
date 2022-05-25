@@ -13,7 +13,7 @@ const Bannar = () => {
                 <div class="hero-overlay  bg-opacity-20"></div>
                 <div class="hero-content text-center text-secondary">
                     <div class="max-w-md">
-                        <h1 class=" text-5xl text-white font-bold">We Provide The Best Product
+                        <h1 class=" text-4xl text-white font-bold">We Provide The Best Product
 
                         </h1>
 
