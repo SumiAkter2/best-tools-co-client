@@ -5,11 +5,25 @@ import auth from '../firebase.init';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { isDisabled } from '@testing-library/user-event/dist/utils';
+import axios from 'axios';
 const ProductDetails = () => {
     // const { register, formState: { errors }, handleSubmit } = useForm();
     const [user, loading, error] = useAuthState(auth);
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
+    const [isLoading, setIsLoading] = React.useState(true);
+    React.useEffect(() => {
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(true);
+            axios
+                .get(`http://localhost:5000/products/${productId}`)
+                .then((res) => {
+                    setProduct(res.data);
+                    setIsLoading(false);
+                });
+        }, 1000);
+    }, [productId]);
 
     useEffect(() => {
         const url = `http://localhost:5000/products/${productId}`;
@@ -25,12 +39,26 @@ const ProductDetails = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+
         let minQuantity = product?.quantity;
         let avlQuantity = product?.avl;
         let inputQuantity = e.target.quantity.value;
+
+
+        // const orders = {
+        //     productId: product._id,
+        //     product: product.name,
+        //     address: e.target.address.value,
+        //     quantity: product.quantity,
+        //     price: product.price,
+        //     email: user.email,
+        //     name: user.displayName,
+        //     phone: e.target.phone.value,
+
+
+        // }
         console.log(inputQuantity);
         if (inputQuantity < minQuantity) {
-
             return alert("Quantity can not be less then Min. Quantity") && isDisabled;
 
         }
@@ -51,14 +79,21 @@ const ProductDetails = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
+                    if (data.success) {
+                        toast(`Order Done!!`)
+                    }
+
                     setProduct({ ...data, avlQuantity: (avlQuantity - newQuantity) });
                     toast("Successfully Delivered");
                 });
         } else {
-            alert("Please insert positive number of quantity");
+            toast.error(`Sorry !!`)
+            alert("Please insert valid number of quantity");
             e.target.reset();
             return;
         }
+        setProduct(null)
+
     };
 
     return (
@@ -67,7 +102,7 @@ const ProductDetails = () => {
             <div className="hero ">
                 <div >
                     <div className="hero-content flex-col lg:flex-row">
-                        <img src="https://api.lorem.space/image/movie?w=260&h=400" style={{ 'width': '100px' }} alt='tools img' />
+                        <img src={productId.picture} style={{ 'width': '100px' }} alt='tools img' />
                         <div className='text-left pl-2'>
                             <p >{product.description}</p>
                             <p className="text-xl ">{product.name}</p>
@@ -93,13 +128,13 @@ const ProductDetails = () => {
                     <input type="text" value={user?.email || ''}
                         // {...register("text", { required: true })}
                         placeholder="Type Email Address" className="input input-bordered input-md " />
-                    {/* <span className="label-text-alt">  {errors.text?.type === 'required' && "Address name is required"}</span> */}
-                    <input type="text" placeholder="Type Address" className="input input-bordered  input-md" />
-                    <input type="text" placeholder="Type Phone No" className="input input-bordered  input-md" />
+
+                    <input type="text" name='address' placeholder="Type Address" className="input input-bordered  input-md" />
+                    <input type="text" name='phone' placeholder="Type Phone No" className="input input-bordered  input-md" />
                     <input type="number" name='quantity'
 
                         defaultValue={product?.quantity} className="input input-bordered   w-full max-w-xs" />
-                    {/* <span class="label-text-alt">h:{errors.number?.type === 'required' && "First name is required"}</span> */}
+
 
 
                     <button type='submit' className="btn btn-outline btn-primary my-2 ">order</button>

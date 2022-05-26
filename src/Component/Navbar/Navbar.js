@@ -31,6 +31,7 @@ const Navbar = ({ children }) => {
                                 <li><NavLink className='rounded-lg ' to='/'>Home</NavLink></li>
 
                                 <li><NavLink className='rounded-lg' to='/blogs'>Blogs</NavLink></li>
+                                <li><NavLink className='rounded-lg' to='/myportfolio'>My Portfolio</NavLink></li>
 
 
                                 {/* {

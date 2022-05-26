@@ -8,7 +8,7 @@ const Footer = () => {
                 <div>
 
                     <p className='flex items-center font-bold text-2xl'> <img style={{ 'width': '40px' }} src={b} alt="" />Best Tools co.</p>
-                    <p>Providing reliable tech since 1992</p>
+                    <p>We provide our best tools, since 1992</p>
                 </div>
                 <div>
                     <span className="footer-title">Services</span>

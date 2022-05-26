@@ -18,6 +18,7 @@ import MyProfile from './Component/DashBoard/MyProfile';
 import MyOrder from './Component/DashBoard/MyOrder';
 import AddReview from './Component/DashBoard/AddReview';
 import ProductDetails from './Component/ProductDetails';
+import MyPortfolio from './Component/MyPortfolio';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
 
           <Route path='login' element={<LogIn></LogIn>}></Route>
           <Route path='signin' element={<SignIn></SignIn>}></Route>
+          <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
           {/* <Route path='tools' element={
 
             <RequireAuth>

@@ -3,6 +3,7 @@ import About from './About';
 import Arrival from './Arrival';
 import Bannar from './Bannar';
 import Hotdeels from './Hotdeels';
+import ProductAddForm from './ProductAddForm';
 import Products from './Products';
 import Reviews from './Reviews';
 import Subcrib from './Subcrib';
@@ -16,7 +17,7 @@ const Home = () => {
 
             <Bannar></Bannar>
             <Products></Products>
-
+            <ProductAddForm></ProductAddForm>
             <Reviews></Reviews>
             <Summary></Summary>
             <About></About>
