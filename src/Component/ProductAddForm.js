@@ -17,7 +17,7 @@ const ProductAddForm = () => {
         e.preventDefault();
         if (Object.keys(input).length > 0) {
             axios
-                .post("http://localhost:5000/addProduct", input)
+                .post("https://polar-reef-20310.herokuapp.com/addProduct", input)
                 .then((res) => {
                     if (res.data.insertedId) {
                         toast.error(`Something happened wrong..`)

@@ -15,7 +15,7 @@ const MyOrder = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure?");
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://polar-reef-20310.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
@@ -34,7 +34,7 @@ const MyOrder = () => {
         const email = user.email;
 
         const getItems = async () => {
-            const url = `http://localhost:5000/orders?email=${email}`;
+            const url = `https://polar-reef-20310.herokuapp.com/orders?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {

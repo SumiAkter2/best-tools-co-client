@@ -6,13 +6,13 @@ const Products = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://polar-reef-20310.herokuapp.com/products`)
             .then(res => res.json())
             .then(data => setProducts(data))
 
     }, [products])
 
-    // http://localhost:5000/products
+    // https://polar-reef-20310.herokuapp.com/products
     return (
         <div className='my-12'>
             <h1 className='text-3xl'>Available Products</h1>

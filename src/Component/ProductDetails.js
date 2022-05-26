@@ -17,7 +17,7 @@ const ProductDetails = () => {
         setTimeout(() => {
             setIsLoading(true);
             axios
-                .get(`http://localhost:5000/products/${productId}`)
+                .get(`https://polar-reef-20310.herokuapp.com/products/${productId}`)
                 .then((res) => {
                     setProduct(res.data);
                     setIsLoading(false);
@@ -26,7 +26,7 @@ const ProductDetails = () => {
     }, [productId]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/products/${productId}`;
+        const url = `https://polar-reef-20310.herokuapp.com/products/${productId}`;
 
         fetch(url)
 
@@ -69,7 +69,7 @@ const ProductDetails = () => {
             const Quantity = (minQuantity) + (inputQuantity);
             const newQuantity = { Quantity };
             console.log(newQuantity);
-            const url = `http://localhost:5000/orders/${productId}`;
+            const url = `https://polar-reef-20310.herokuapp.com/orders/${productId}`;
             fetch(url, {
                 method: "PUT",
                 headers: {
