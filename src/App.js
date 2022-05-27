@@ -19,8 +19,19 @@ import MyOrder from './Component/DashBoard/MyOrder';
 import AddReview from './Component/DashBoard/AddReview';
 import ProductDetails from './Component/ProductDetails';
 import MyPortfolio from './Component/MyPortfolio';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useAdmin from './Hooks/UseAdmin';
+// import AdminProfile from './Component/DashBoard/AdminProfile';
+import ManageAllProducts from './Component/DashBoard/ManageAllProducts';
+import MakeAdmin from './Component/DashBoard/MakeAdmin';
+import ManageOrder from './Component/DashBoard/ManageOrder';
+import AddProducts from './Component/DashBoard/AddProducts';
+import UpdateProfile from './Component/DashBoard/UpdateProfile';
+
 
 function App() {
+  const [admin] = useAdmin();
   return (
     <div className="App">
       <Navbar>
@@ -48,16 +59,28 @@ function App() {
           }></Route>
 
           <Route path='dashboard' element={<RequireAuth><DashBoard /></RequireAuth>}>
-            <Route index element={<MyProfile></MyProfile>}></Route>
-            <Route path='order' element={<MyOrder />}></Route>
-            <Route path='review' element={<AddReview></AddReview>}></Route>
+
+
+            <Route path='order' element={<ManageOrder />}></Route>
+            <Route path='allProducts' element={<ManageAllProducts></ManageAllProducts>}></Route>
+            <Route path='addProducts' element={<AddProducts></AddProducts>}></Route>
+            <Route path='admin' element={<MakeAdmin></MakeAdmin>}>
+            </Route> <Route index element={<MyProfile>
+
+            </MyProfile>}></Route>
+            <Route path='updateprofile' element={<UpdateProfile></UpdateProfile>}></Route>
+
+            {/* <Route path='order' element={<MyOrder />}></Route> */}
+            <Route path='review' element={<AddReview></AddReview>}>
+            </Route>
+
           </Route>
           <Route path='summary' element={<Summary />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
         <Footer></Footer>
       </Navbar>
-
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

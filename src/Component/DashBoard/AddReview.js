@@ -1,13 +1,16 @@
-import userEvent from '@testing-library/user-event';
-import axios from 'axios';
+
+import axios from "axios";
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import swal from 'sweetalert';
-import auth from '../../firebase.init';
+import swal from "sweetalert";
+
 import Reviews from '../Reviews';
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import GetReview from "../GetReview";
+
 
 const AddReview = () => {
-    // const { user } = useAuthState(auth);
+    const { user } = useAuthState(auth);
     const [value, setValue] = React.useState(2);
     const [fieldValue, setFieldVAlue] = React.useState("")
     const handleField = (e) => {
@@ -16,7 +19,7 @@ const AddReview = () => {
     const handleReview = (e) => {
         let dataValues = { comment: fieldValue, rating: value, userName: user?.displayName };
         e.preventDefault();
-        axios.post("https://polar-journey-34409.herokuapp.com/review", dataValues)
+        axios.post(`http://localhost:5000/review`, dataValues)
             .then(res => {
                 if (res.data.insertedId) {
                     swal({
@@ -30,57 +33,35 @@ const AddReview = () => {
                 }
             })
     }
-    const [user] = useAuthState(auth)
     return (
-        <div className='py-12 '>
+        <div className=' my-12  mx-auto'>
+            <div >
+                <h1 className="text-pink-500 font-bold text-xl">Give You Feed Back Here:</h1>
+                <form onSubmit={handleReview} ><textarea class="textarea textarea-secondary" placeholder="Start" onChange={handleField}
+                    required></textarea>
 
-            {/* <form className=' mx-auto w-3/5 rounded-lg  '>
-                <p className='text-2xl text-pink-400 font-bold my-6'>Your review:</p>
-                <textarea class="textarea textarea-secondary" placeholder="Bio"></textarea>
-                <p>{user?.displayName}</p>
-                <p>{user?.email}</p>
-                <p>Rating:<div class="rating">
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                </div></p>
-                <button class="btn  btn-primary my-4">Submit</button>
-            </form> */}
-            <div sx={{ my: 10 }}>
-                <form onSubmit={handleReview} style={{ textAlign: "left" }}>
-                    <input
-                        label="Experience"
-                        multiline
-                        rows={3}
-                        margin="normal"
-                        fullWidth
-                        onChange={handleField}
-                        required className='border-4'
-                    />
-                    <typography sx={{ textAlign: "left" }} component="legend">
+
+                    <p component="legend">
                         Gives Rating (out of 5)
-                    </typography>
-                    <rating
-                        sx={{ width: "50%", textAlign: "left" }}
-                        name="simple-controlled"
-                        precision={0.5}
-                        value={value}
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}
-                    />
+                    </p>
+                    <div class="rating">
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                    </div>
                     <button
                         type="submit"
-                        variant="outlined"
-                        sx={{ backgroundColor: "#21a06a", color: "#000" }}
+
+                        className="btn-primary rounded-sm p-2 mb-12"
                     >
                         Submit
                     </button>
                 </form>
             </div>
-            <Reviews></Reviews>
+            <GetReview></GetReview>
+            {/* <Reviews></Reviews> */}
         </div>
     );
 };

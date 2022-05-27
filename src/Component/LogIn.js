@@ -5,49 +5,50 @@ import Spinner from './Spinner';
 import { useForm } from "react-hook-form";
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import g from '../asset/Google.jpg';
 import useToken from '../Hooks/useToken';
 
+
 const Login = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        user1,
+        loading1,
+        error1,
     ] = useSignInWithEmailAndPassword(auth);
-
-    const [token] = useToken(user || gUser);
-
-    let signInError;
     const navigate = useNavigate();
     const location = useLocation();
-    let from = location.state?.from?.pathname || "/";
-
+    let from = location.state?.from?.pathname || "/dashboard";
+    const [token] = useToken(user || user1);
     useEffect(() => {
-        if (token) {
+        if (user || user1) {
             navigate(from, { replace: true });
         }
-    }, [token, from, navigate])
-
-    if (loading || gLoading) {
-        return <Spinner></Spinner>
-    }
-
-    if (error || gError) {
-        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
-    }
+    }, [user, user1, from, navigate])
 
     const onSubmit = data => {
+        // data.preventDefault();
+
         signInWithEmailAndPassword(data.email, data.password);
+        console.log(data.email, data.password);
+        // navigate('/dashboard');
+    };
+
+    let signInError;
+    if (error || error1) {
+        signInError = <p className='text-red-500'><small>{error?.message || error1?.message}</small></p>
+    }
+    if (loading || loading1) {
+        return (<Spinner></Spinner>)
     }
 
+
     return (
-        <div className='flex justify-center item-center  bg-inherit my-12'>
-            <div className="card lg:w-96  text-primary-content">
-                <div className="card-body border-2 shadow-lg">
-                    <h2 className="text-left text-3xl font-bold text-pink-500">Log IN</h2>
+        <div className='flex justify-center item-center bg-inherit'>
+            <div className="card w-96  text-primary-content">
+                <div className="card-body">
+                    <h2 className="text-center text-xl font-bold">Log IN</h2>
                     {/* React form Hook */}
                     <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -100,15 +101,15 @@ const Login = () => {
                             </label>
                         </div>
                         {signInError}
-                        <input className='btn btn-primary w-full max-w-xs ' type="submit" value="Log In" />
+                        <input className='btn w-full max-w-xs text-white' type="submit" value="Log In" />
                     </form>
                     {/* or  */}
                     <div className="divider text-center text-xl ">OR</div>
                     {/* Google log in */}
-                    <p><small>New to Doctors Portal <Link className='text-pink-500' to="/signin">Create New Account</Link></small></p>
+                    <p><small>New to Best Tools co <Link className='text-pink-500' to="/signin">Create New Account</Link></small></p>
 
                     <div className="card-actions justify-center">
-                        <button onClick={() => signInWithGoogle()} className="btn btn-outline btn-primary w-full max-w-xs "><img src={g} style={{ 'width': '20px' }} alt="" /> GOOGLE SIGN IN</button>
+                        <button onClick={() => signInWithGoogle()} className="btn btn-primary w-full">GOOGLE SIGN IN</button>
                     </div>
                 </div>
             </div>

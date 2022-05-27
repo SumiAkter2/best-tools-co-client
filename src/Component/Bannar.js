@@ -9,11 +9,11 @@ const Bannar = () => {
     return (
         <div className='relative z-10'>
 
-            <div class="hero  h-[80vh]" style={{ "background-image": "url('img9.jpg')" }}>
-                <div class="hero-overlay  bg-opacity-20"></div>
-                <div class="hero-content text-center text-secondary">
-                    <div class="max-w-md">
-                        <h1 class=" text-4xl text-white font-bold">We Provide The Best Product
+            <div className="hero  h-[80vh]" style={{ "background-image": "url('img9.jpg')" }}>
+                <div className="hero-overlay  bg-opacity-20"></div>
+                <div className="hero-content text-center text-secondary">
+                    <div className="max-w-md">
+                        <h1 className=" text-4xl text-white font-bold">We Provide The Best Product
 
                         </h1>
 

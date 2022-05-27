@@ -1,13 +1,12 @@
-import React from 'react';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import auth from '../firebase.init';
-import Spinner from '../Component/Spinner';
+import React, { useEffect } from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init'
+import Spinner from './Spinner';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import useToken from '../Hooks/useToken';
-
 const SignIn = () => {
-    // const [user1, gLoading, gError] = useSignInWithGoogle(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         createUserWithEmailAndPassword,
@@ -22,7 +21,6 @@ const SignIn = () => {
 
     const navigate = useNavigate();
 
-
     let signInError;
 
     if (loading || updating) {
@@ -33,21 +31,21 @@ const SignIn = () => {
         signInError = <p className='text-red-500'><small>{error?.message || updateError?.message}</small></p>
     }
 
+    if (token) {
+        navigate('/dashboard');
+    }
+
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         console.log('update done');
     }
-    if (token) {
-        navigate('/dashboard');
-        console.log(token);
-    }
 
     return (
         <div className='flex justify-center item-center bg-inherit my-12'>
-            <div className="card lg:w-96  text-primary-content">
+            <div className="card w-96  text-primary-content">
                 <div className="card-body border-4">
-                    <h2 className="text-center text-3xl text-pink-500 font-bold "> Sign Up</h2>
+                    <h2 className="text-center text-xl font-bold"> Sign Up</h2>
                     {/* React form Hook */}
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* Name */}
@@ -70,7 +68,7 @@ const SignIn = () => {
                             {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
                         </label>
 
-                        {/* Input  email field */}
+                        {/* Input field */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -118,7 +116,7 @@ const SignIn = () => {
                             </label>
                         </div>
                         {signInError}
-                        <input className='btn w-full btn-primary max-w-xs text-white' type="submit" value="Sign Up" />
+                        <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
                     </form>
 
                     <p><small>Already have an account??<Link className='text-pink-500' to="/login">Please Log In</Link></small></p>
@@ -128,6 +126,5 @@ const SignIn = () => {
         </div>
     );
 };
-
 
 export default SignIn;

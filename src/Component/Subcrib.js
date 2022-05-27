@@ -8,8 +8,8 @@ const Subcrib = () => {
                 <h1>Receive early  updates Our  products info.</h1>
             </div>
             <div className='flex mt-4'>
-                <input type="text" placeholder="Type Emaill" class="input input-bordered input-secondary w-full " />
-                <button class="btn btn-outline btn-secondary ml-3">Subscribe</button>
+                <input type="text" placeholder="Type Emaill" className="input input-bordered input-secondary w-full " />
+                <button className="btn btn-outline btn-secondary ml-3">Subscribe</button>
             </div>
         </div>
     );

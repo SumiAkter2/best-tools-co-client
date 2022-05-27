@@ -12,46 +12,46 @@ const MyOrder = () => {
 
     // const [items, setItems] = useItems();
 
-    const handleDelete = (id) => {
-        const proceed = window.confirm("Are you sure?");
-        if (proceed) {
-            const url = `https://polar-reef-20310.herokuapp.com/orders/${id}`;
-            fetch(url, {
-                method: "DELETE",
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data);
-                    const remaining = myItems.filter((item) => item._id !== id);
-                    setMyItems(remaining);
-                });
-        }
-    };
+    // const handleDelete = (id) => {
+    //     const proceed = window.confirm("Are you sure?");
+    //     if (proceed) {
+    //         const url = `https://polar-reef-20310.herokuapp.com/orders/${id}`;
+    //         fetch(url, {
+    //             method: "DELETE",
+    //         })
+    //             .then((res) => res.json())
+    //             .then((data) => {
+    //                 console.log(data);
+    //                 const remaining = myItems.filter((item) => item._id !== id);
+    //                 setMyItems(remaining);
+    //             });
+    // }
+    // };
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    useEffect(() => {
-        const email = user.email;
+    // useEffect(() => {
+    //     const email = user.email;
 
-        const getItems = async () => {
-            const url = `https://polar-reef-20310.herokuapp.com/orders?email=${email}`;
-            try {
-                const { data } = await axios.get(url, {
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-                    },
-                });
-                setMyItems(data);
-            } catch (error) {
-                console.log(error.message);
-                if (error.response.status === 403 || error.response.status === 401) {
-                    signOut(auth);
-                    navigate("/login");
-                }
-            }
-        };
-        getItems();
-    }, [user]);
+    //     const getItems = async () => {
+    //         const url = `https://polar-reef-20310.herokuapp.com/orders?email=${email}`;
+    //         try {
+    //             const { data } = await axios.get(url, {
+    //                 headers: {
+    //                     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    //                 },
+    //             });
+    //             setMyItems(data);
+    //         } catch (error) {
+    //             console.log(error.message);
+    //             if (error.response.status === 403 || error.response.status === 401) {
+    //                 signOut(auth);
+    //                 navigate("/login");
+    //             }
+    //         }
+    //     };
+    //     getItems();
+    // }, [user]);
 
     return (
         <div>
@@ -64,7 +64,7 @@ const MyOrder = () => {
                             <ShowMyItem
                                 key={item._id}
                                 item={item}
-                                handleDelete={handleDelete}
+                            // handleDelete={handleDelete}
                             ></ShowMyItem>
                         ))}
                     </div>

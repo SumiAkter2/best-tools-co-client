@@ -5,26 +5,37 @@ import auth from '../../firebase.init';
 import useAdmin from '../../Hooks/UseAdmin';
 
 const DashBoard = () => {
-    const [user] = useAuthState(auth);
-    const [admin] = useAdmin(user);
+    // const [user] = useAuthState(auth);
+    // const [admin] = useAdmin(user);
     return (
         <div >
-            <div className="drawer drawer-end  ">
-                <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
-                    <h1>Dashboard</h1>
+            <div class="drawer drawer-mobile">
+                <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+                <div class="drawer-content flex flex-col items-center justify-center">
+                    {/* <h1>Dashboard</h1> */}
                     <Outlet></Outlet>
-                    <label for="my-drawer-4" className="drawer-button btn btn-primary mt-12">Open drawer</label>
+                    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div>
-                <div className="drawer-side">
-                    <label for="my-drawer-4" className="drawer-overlay"></label>
-                    <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+                <div class="drawer-side w-2/4 lg:w-full">
+                    <label for="my-drawer-2" class="drawer-overlay"></label>
+                    <ul class="menu p-4 overflow-y-auto  bg-base-200 text-pink-500">
 
                         <li><Link to="/dashboard/order">My Order</Link>
                         </li>
                         <li><Link to="/dashboard" >My profile</Link>
                         </li>
                         <li><Link to="/dashboard/review">My Review</Link></li>
+                        <li><Link to="/dashboard/order">Manage Order</Link>
+                        </li>
+                        <li><Link to="/dashboard/allProducts">Manage all Products</Link>
+                        </li>
+                        <li><Link to="/dashboard/addProducts">Add A Products</Link>
+                        </li>
+
+
+                        <li><Link to="/dashboard/admin">Make a admin </Link></li>
+                        {/* <li><Link to="/dashboard/profile">My Profile</Link></li> */}
+
 
                     </ul>
                 </div>
