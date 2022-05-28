@@ -48,17 +48,17 @@ const AddProducts = () => {
             <form className='w-full grid lg:grid-cols-3 gap-4'>
                 <input label="Product Name"
                     type="text"
-                    name="name" onChange={getAddProductValue} placeholder="Type Product Name" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                    name="name" onChange={getAddProductValue} placeholder="Type Product Name" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
                 <input label="Short Information"
-                    name="short_description" onChange={getAddProductValue} type="text" placeholder="Short Information" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
-                <div class="form-control w-full max-w-xs">
+                    name="short_description" onChange={getAddProductValue} type="text" placeholder="Short Information" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                <div className="form-control w-full max-w-xs">
 
-                    <label class=" mb-3 w-full   max-w-xs" onChange={getAddProductValue} label="Image URL"
+                    <label className=" mb-3 w-full   max-w-xs" onChange={getAddProductValue} label="Image URL"
                         name="image" type="text" placeholder="Image URL" >
 
 
                     </label>
-                    <select class="select select-secondary">
+                    <select className="select select-secondary">
                         <option disabled selected>Pick one</option>
                         <option>https://i.ibb.co/xqqS3t0/imgg4.jpg</option>
                         <option>https://i.ibb.co/jT6Zd2d/imgg5.jpg
@@ -72,11 +72,11 @@ const AddProducts = () => {
 
 
                 <input label="Description"
-                    name="description" onChange={getAddProductValue} type="text" placeholder="Type Description" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
-                <input name="price" label="price" onChange={getAddProductValue} type="number" placeholder="Type price" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
-                <input onChange={getAddProductValue} type="number" placeholder="Type Quantity" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                    name="description" onChange={getAddProductValue} type="text" placeholder="Type Description" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                <input name="price" label="price" onChange={getAddProductValue} type="number" placeholder="Type price" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                <input onChange={getAddProductValue} type="number" placeholder="Type Quantity" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
 
-                <button onClick={handlePost} class="btn btn-primary my-4">Add Now</button>
+                <button onClick={handlePost} className="btn btn-primary my-4">Add Now</button>
             </form>
         </div>
     );

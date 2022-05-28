@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdminOrderDetail = ({ p, handleDelete }) => {
     return (
-        <div className='grid grid-cols-7 p-4  h-16 mx-12 border-2'>
+        <div className='grid lg:grid-cols-7 p-4   lg:h-16 mx-12 border-2'>
             <p >{p.email}</p>
             <p className='pl-12'>{p.name}</p>
             <p >{p.product_name}</p>

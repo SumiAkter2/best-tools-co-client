@@ -37,19 +37,21 @@ const AddReview = () => {
         <div className=' my-12  mx-auto'>
             <div >
                 <h1 className="text-pink-500 font-bold text-xl">Give You Feed Back Here:</h1>
-                <form onSubmit={handleReview} ><textarea class="textarea textarea-secondary" placeholder="Start" onChange={handleField}
+                <form onSubmit={handleReview} ><textarea className="textarea textarea-secondary" placeholder="Start" onChange={handleField}
                     required></textarea>
 
-
+                    {/* <p>{user.email}</p> */}
+                    {/* <p>{user.displayName}</p> */}
                     <p component="legend">
                         Gives Rating (out of 5)
                     </p>
-                    <div class="rating">
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+
+                    <div className="rating">
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                     </div>
                     <button
                         type="submit"

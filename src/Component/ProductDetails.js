@@ -12,6 +12,7 @@ const ProductDetails = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
     const navigate = useNavigate();
+    const [isdelete] = useState(false)
     const handleSubmit = e => {
         e.preventDefault();
 
@@ -33,17 +34,18 @@ const ProductDetails = () => {
                 icon: "warning",
             });
         }
+
         const order = {
             product_name: product.name,
             User_name: user?.displayName,
-            quantity: inputQuantity,
+            totalQuantity: inputQuantity,
             price: product.price,
             number: e.target.number.value,
             email: user?.email,
             status: "Pending",
 
         }
-        console.log(order);
+        // console.log(order);
         fetch(`https://radiant-shelf-15302.herokuapp.com/order`, {
             method: 'POST',
             headers: {
@@ -54,7 +56,7 @@ const ProductDetails = () => {
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
-                console.log(data);
+
                 if (data) {
                     swal({
                         text: "Successfully Purchase",
@@ -82,38 +84,6 @@ const ProductDetails = () => {
 
 
 
-    // disabled={quantity < (product.quantity) || quantity > (product.avl)
-
-
-    // console.log(inputQuantity);
-    // if (inputQuantity < minQuantity) {
-    //     return toast.error("Quantity can not be less then Min. Quantity.Please insert valid number of quantity") && isDisabled;
-
-    // }
-    // if (inputQuantity > avlQuantity) {
-    //     return toast.error("Quantity can not be More then Available Quantity.Please insert valid number of quantity");
-    // }
-    // console.log(orders);
-
-    // if (inputQuantity => minQuantity || inputQuantity <= avlQuantity) {
-    //     const Quantity = (minQuantity) + (inputQuantity);
-    //     const newQuantity = { Quantity };
-    //     console.log(newQuantity);
-    //     const url = `https://polar-reef-20310.herokuapp.com/orders/${productId}`;
-    //    
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //            
-    //             setProduct({ ...data, avlQuantity: (avlQuantity - newQuantity) });
-    //             toast("Successfully Delivered");
-    //         });
-    // } else {
-    //     toast.error(`Sorry !!`)
-    //     alert("Please insert valid number of quantity");
-    //     e.target.reset();
-    //     return;
-    // }
-    //     setProduct(null)
 
 
 
@@ -150,33 +120,33 @@ const ProductDetails = () => {
                 <input label="Name"
                     type="text"
                     name="name"
-
-                    defaultValue={user?.displayName} placeholder="Type here" class="input input-bordered input-secondary w-full max-w-xs" />
+                    disabled readOnly
+                    defaultValue={user?.displayName} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
                 <input label="Name"
-
+                    disabled readOnly
                     type="email"
                     name="email"
 
-                    value={user?.email || ""} placeholder="Type here" class="input input-bordered input-secondary w-full max-w-xs" />
+                    value={user?.email || ""} placeholder="Type here" className="input input-bordered input-secondary w-full max-w-xs" />
                 <input label="Name"
                     type="text"
                     name="product_name"
-
-                    value={product?.name || ""} placeholder="Type Name" class="input input-bordered input-secondary w-full max-w-xs" />
+                    disabled readOnly
+                    value={product?.name || ""} placeholder="Type Name" className="input input-bordered input-secondary w-full max-w-xs" />
                 <br />
                 <input
                     label="Name"
                     type="number"
                     name="quantity"
 
-                    defaultValue={product.quantity} placeholder="Type Name " class="input input-bordered input-secondary w-full max-w-xs" />
+                    defaultValue={product.quantity} placeholder="Type Name " className="input input-bordered input-secondary w-full max-w-xs" />
                 <input label="Name"
                     type="text"
                     name="number"
 
-                    placeholder="Type phone" class="input input-bordered input-secondary w-full max-w-xs" />
+                    placeholder="Type phone" className="input input-bordered input-secondary w-full max-w-xs" />
 
-                <button type='submit' class="btn btn-outline my-3 btn-secondary">Purchase</button>
+                <button type='submit' className="btn btn-outline my-3 btn-secondary">Purchase</button>
             </form>
         </div>
     );

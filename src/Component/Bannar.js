@@ -9,7 +9,7 @@ const Bannar = () => {
     return (
         <div className='relative z-10'>
 
-            <div className="hero  h-[80vh]" style={{ "background-image": "url('img9.jpg')" }}>
+            <div className="hero  h-[80vh]" style={{ "backgroundImage": "url('img9.jpg')" }}>
                 <div className="hero-overlay  bg-opacity-20"></div>
                 <div className="hero-content text-center text-secondary">
                     <div className="max-w-md">

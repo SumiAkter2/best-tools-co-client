@@ -45,7 +45,7 @@ const Blogs = () => {
                     4. Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts
                 </div>
                 <div className="collapse-content bg-secondary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    <p>Ans: localStorage is a web storage object that allows JavaScript sites and apps to keep key-value pairs in a web browser with no expiration date.</p>
+                    <p>Ans:I can not use the state directly because in the project every value is different.Likes array,object,string,boolean ,null.So, i use different state by using setProducts or setSomething.</p>
                 </div>
             </div>
             <div className="collapse w-96 mx-auto mt-4 rounded-md">

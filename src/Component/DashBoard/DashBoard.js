@@ -9,16 +9,16 @@ const DashBoard = () => {
     const [admin] = useAdmin(user);
     return (
         <div >
-            <div class="drawer drawer-mobile">
-                <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col items-center justify-center">
+            <div className="drawer drawer-mobile">
+                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content flex flex-col items-center justify-center">
                     {/* <h1>Dashboard</h1> */}
                     <Outlet></Outlet>
-                    <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div>
-                <div class="drawer-side  ">
-                    <label for="my-drawer-2" class="drawer-overlay"></label>
-                    <ul class="menu p-4 overflow-y-auto  bg-base-200 text-pink-500">
+                <div className="drawer-side w-2/4 lg:w-full">
+                    <label for="my-drawer-2" className="drawer-overlay"></label>
+                    <ul className="menu p-4 overflow-y-auto  bg-base-200 text-pink-500">
                         <li><Link to="/dashboard" >My profile</Link>
                         </li>
 

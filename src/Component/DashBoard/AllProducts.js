@@ -17,7 +17,7 @@ const AllProducts = ({ index, product }) => {
             if (willDelete) {
                 axios
                     .delete(
-                        `https://radiant-shelf-15302.herokuapp.com/deleteProducts/${id}`
+                        `https://radiant-shelf-15302.herokuapp.com/product/${id}`
                     )
                     .then((res) => {
                         if (res.data.deletedCount) {
@@ -46,7 +46,7 @@ const AllProducts = ({ index, product }) => {
                 <td>{product.quantity}</td>
                 <td>{product.price}</td>
                 <td>
-                    <button className='btn-primary rounded-sm p-1' onClick={() => handleDelete(product._id)}>X delete</button>
+                    <button className='btn-primary rounded-sm p-1' onClick={() => handleDelete(product._id)}> Delete</button>
                 </td>
 
             </tr>

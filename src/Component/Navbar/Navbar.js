@@ -40,7 +40,7 @@ const Navbar = ({ children }) => {
                                 {
                                     user && <li><NavLink className='rounded-lg  my-2' to='/dashboard'>Dashboard</NavLink></li>
                                 }
-                                {user ? <><li><button className='bg-primary rounded-lg  my-2' onClick={logout}>Sign Out</button></li>  <li> <button>{user?.displayName}</button></li></> : <li><NavLink className='rounded-lg  my-2' to='/login'>Log In</NavLink></li>}
+                                {user ? <><li><button className='bg-primary rounded-lg  my-2' onClick={logout}>Sign Out</button></li>  <li> <button>{user?.displayName}</button> <button>  {user?.email}</button></li></> : <li><NavLink className='rounded-lg  my-2' to='/login'>Log In</NavLink></li>}
 
 
                                 <label className='swap swap-rotate'>

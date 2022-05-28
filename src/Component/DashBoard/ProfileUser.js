@@ -8,7 +8,7 @@ const ProfileUser = ({ user, index }) => {
         navigate('/dashboard/updateprofile');
     }
     return (
-        <div className='grid grid-cols-5 gap-0 h-16 mx-12 border-2 '>
+        <div className='grid lg:grid-cols-5 gap-0  lg:h-16 mx-12 border-2 '>
 
             <p>{index + 1}</p>
             <p>{user.email}</p>

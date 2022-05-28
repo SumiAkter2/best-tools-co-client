@@ -5,7 +5,7 @@ import React from 'react';
 const Arrival = () => {
     return (
         <div className='lg:flex gap-x-4 px-12 grid gap-y-5'>
-            <div className="hero " style={{ "background-image": "url('img15.jpg')" }}>
+            <div className="hero " style={{ "backgroundImage": "url('img15.jpg')" }}>
                 <div className="hero-overlay bg-opacity-50"></div>
                 <div className="hero-content text-center text-secondary">
                     <div className="max-w-md">
@@ -18,7 +18,7 @@ const Arrival = () => {
                 </div>
             </div>
 
-            <div className="hero " style={{ "background-image": "url('img14.jpg')" }}>
+            <div className="hero " style={{ "backgroundImage": "url('img14.jpg')" }}>
                 <div className="hero-overlay bg-opacity-50"></div>
                 <div className="hero-content text-center text-secondary">
                     <div className="max-w-md">

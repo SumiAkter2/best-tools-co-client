@@ -16,7 +16,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-5 gap-0 h-16 mx-12 border-2 text-pink-500 font-bold text-lg'>
+            <div className='grid lg:grid-cols-5 gap-0  lg:h-16 mx-12 border-2 text-pink-500 font-bold text-lg'>
 
 
                 <p>   </p>

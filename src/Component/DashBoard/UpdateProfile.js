@@ -46,20 +46,20 @@ const UpdateProfile = () => {
             <form className='w-full grid lg:grid-cols-3 gap-4'>
                 <input label="Product Name"
                     type="text"
-                    name="name" onChange={getAddProductValue} placeholder="Type Email" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                    name="name" onChange={getAddProductValue} placeholder="Type Email" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
                 <input label="Product Name"
                     type="text"
-                    name="name" onChange={getAddProductValue} placeholder="Type  Name" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                    name="name" onChange={getAddProductValue} placeholder="Type  Name" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
                 <input label="Short Information"
-                    name="short_description" onChange={getAddProductValue} type="text" placeholder="Educational Qualification" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
-                <div class="form-control w-full max-w-xs">
+                    name="short_description" onChange={getAddProductValue} type="text" placeholder="Educational Qualification" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                <div className="form-control w-full max-w-xs">
 
 
-                    <input name="location" label="location" onChange={getAddProductValue} type="text" placeholder="Type location" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
-                    <input onChange={getAddProductValue} type="number" placeholder="Type phone number" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                    <input name="location" label="location" onChange={getAddProductValue} type="text" placeholder="Type location" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                    <input onChange={getAddProductValue} type="number" placeholder="Type phone number" className="input pt-3 w-full input-bordered input-secondary max-w-xs" />
 
                 </div>
-                <button onClick={handlePost} class="btn btn-primary my-4">update Now</button>
+                <button onClick={handlePost} className="btn btn-primary my-4">update Now</button>
             </form>
         </div>
 

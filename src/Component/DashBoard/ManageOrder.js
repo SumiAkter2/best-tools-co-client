@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -8,6 +9,8 @@ import AdminOrderDetail from './AdminOrderDetail';
 
 
 const ManageOrder = () => {
+    const [userData, setUserData] = useState([]);
+    const [isLoading,] = useState(true);
     const [loading] = useAuthState(auth);
     const [product, setProduct] = useState([]);
 
@@ -23,35 +26,39 @@ const ManageOrder = () => {
 
     }, [product])
     const handleDelete = (id) => {
-        const proceed = swal({
-            text: "Are you sure to delete this order ?",
-            icon: 'warning',
+        swal({
+            title: "Are you sure?",
+
+            icon: "warning",
             buttons: true,
-
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                axios
+                    .delete(
+                        `https://radiant-shelf-15302.herokuapp.com/deleteProducts/${id}`
+                    )
+                    .then((res) => {
+                        if (res.data.deletedCount) {
+                            swal("Product has been deleted!", {
+                                icon: "success",
+                            });
+                            const restOrder = userData.filter(
+                                (userdata) => userdata._id !== id
+                            );
+                            setUserData(restOrder);
+                        }
+                    });
+            } else {
+                swal("Your Product is safe!");
+            }
         });
-        if (proceed) {
-            const url = `https://radiant-shelf-15302.herokuapp.com/deleteProducts/${id}`;
-            fetch(url, {
-                method: "DELETE",
-            })
-
-                .then((res) => res.json())
-                .then((data) => {
-                    console.log(data);
-                    const remaining = product.filter((item) => item._id !== id);
-                    setProduct(remaining);
-                });
-
-        }
-        else {
-            return;
-        }
     };
 
     return (
         <div >
             <h1 className='text-2xl my-12 font-bold '>Manage All Orders:</h1>
-            <div className='grid grid-cols-7 gap-0 h-16 mx-12 border-2 text-pink-500 font-bold text-lg'>
+            <div className='grid lg:grid-cols-7 gap-0  lg:h-16 mx-12 border-2 text-pink-500 font-bold text-lg'>
 
                 <p>Email:</p>
                 <p className='pl-12'>Name:</p>
