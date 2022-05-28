@@ -1,18 +1,95 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import Spinner from './Spinner';
+import swal from 'sweetalert';
+import axios from 'axios';
 import auth from '../firebase.init';
 import { toast } from 'react-toastify';
-// import { useForm } from 'react-hook-form';
-import Spinner from './Spinner';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
-// import axios from 'axios';
+
 const ProductDetails = () => {
+    // const [user] = useAuthState();
+    // const { productId } = useParams();
+    // const [product, setProduct] = useState([]);
+    // const values = { name: user?.displayName };
+    // const [fieldValue, setFieldVAlue] = useState(values);
+    // const handleChange = (e) => {
+    //     const field = e.target.name;
+    //     const value = e.target.value;
+    //     const newValue = { ...fieldValue };
+    //     newValue[field] = value;
+    //     setFieldVAlue(newValue);
+    // };
+    // const handleSubmit = (e) => {
+    //     const dataVAlue = {
+    //         ...fieldValue,
+    //         product_name: product.name,
+    //         price: product.price,
+    //         number: fieldValue.number,
+    //         email: user?.email,
+    //         status: "Pending",
+    //     };
+
+    // axios
+    //     .post(
+    //         `http://localhost:5000/products/${productId}`,
+    //         dataVAlue
+    //     )
+    //     .then((res) => {
+    //         if (res.data.insertedId) {
+    //             swal({
+    //                 text: "Purchase Successful",
+    //                 icon: "success",
+    //             });
+    //             e.target.reset();
+    //             setFieldVAlue({});
+    //         }
+    //     });
+
+    //     e.preventDefault();
+    // };
+
+
+
+
+
+
+
+
+
+
+
+
 
     const [user, loading, error] = useAuthState(auth);
+
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
+    const [quantity, setQuantity] = useState('')
 
+
+
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        let minQuantity = product?.quantity;
+        let avlQuantity = product?.avl;
+        let inputQuantity = e.target.quantity.value;
+        console.log(inputQuantity);
+        if (inputQuantity < minQuantity) {
+            return swal({
+                text: "Quantity can not be less then Min.Quantity.Please insert valid number of quantity",
+                icon: "warning",
+            });
+
+        }
+        if (inputQuantity > avlQuantity) {
+            return swal({
+                text: "Quantity can not be More then avl.Quantity .Please insert valid number of quantity",
+                icon: "warning",
+            });
+        }
+    }
 
     useEffect(() => {
         const url = `http://localhost:5000/products/${productId}`;
@@ -24,74 +101,52 @@ const ProductDetails = () => {
 
     }, [productId, product])
 
+
     if (loading) {
         return (<Spinner></Spinner>)
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    // disabled={quantity < (product.quantity) || quantity > (product.avl)}  
 
-        // const orders = {
-        //     productName: product.name,
-        //     productId: product._id,
-        //     Name: user?.displayName,
-        //     email: user?.email,
-        //     quantity: e.target.quantity.value,
-        //     phone: e.target.phone.value,
-        //     address: e.target.address.value,
-        // }
+    // let minQuantity = product?.quantity;
+    // let avlQuantity = product?.avl;
+    // let inputQuantity = e.target.quantity.value;
 
-        // fetch(`http://localhost:5000/products/${productId}`, {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify(product),
-        // }).then(res => res.json())
-        //     .then(data => {
-        //         if (data.success) {
-        //             toast(`Order Done!!`)
+    // console.log(product.picture);
 
-        //             setProduct(null)
-        //         }
-        //     })
-        let minQuantity = product?.quantity;
-        let avlQuantity = product?.avl;
-        let inputQuantity = e.target.quantity.value;
 
-        console.log(product.picture);
 
-        console.log(inputQuantity);
-        if (inputQuantity < minQuantity) {
-            return toast.error("Quantity can not be less then Min. Quantity.Please insert valid number of quantity") && isDisabled;
+    // console.log(inputQuantity);
+    // if (inputQuantity < minQuantity) {
+    //     return toast.error("Quantity can not be less then Min. Quantity.Please insert valid number of quantity") && isDisabled;
 
-        }
-        if (inputQuantity > avlQuantity) {
-            return toast.error("Quantity can not be More then Available Quantity.Please insert valid number of quantity");
-        }
-        // console.log(orders);
+    // }
+    // if (inputQuantity > avlQuantity) {
+    //     return toast.error("Quantity can not be More then Available Quantity.Please insert valid number of quantity");
+    // }
+    // console.log(orders);
 
-        // if (inputQuantity => minQuantity || inputQuantity <= avlQuantity) {
-        //     const Quantity = (minQuantity) + (inputQuantity);
-        //     const newQuantity = { Quantity };
-        //     console.log(newQuantity);
-        //     const url = `https://polar-reef-20310.herokuapp.com/orders/${productId}`;
-        //    
-        //         .then((res) => res.json())
-        //         .then((data) => {
-        //            
-        //             setProduct({ ...data, avlQuantity: (avlQuantity - newQuantity) });
-        //             toast("Successfully Delivered");
-        //         });
-        // } else {
-        //     toast.error(`Sorry !!`)
-        //     alert("Please insert valid number of quantity");
-        //     e.target.reset();
-        //     return;
-        // }
-        setProduct(null)
+    // if (inputQuantity => minQuantity || inputQuantity <= avlQuantity) {
+    //     const Quantity = (minQuantity) + (inputQuantity);
+    //     const newQuantity = { Quantity };
+    //     console.log(newQuantity);
+    //     const url = `https://polar-reef-20310.herokuapp.com/orders/${productId}`;
+    //    
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //            
+    //             setProduct({ ...data, avlQuantity: (avlQuantity - newQuantity) });
+    //             toast("Successfully Delivered");
+    //         });
+    // } else {
+    //     toast.error(`Sorry !!`)
+    //     alert("Please insert valid number of quantity");
+    //     e.target.reset();
+    //     return;
+    // }
+    //     setProduct(null)
 
-    };
+    // };
 
     return (
         < div className='lg:w-2/4 mx-auto bg-base-200 my-3'>
@@ -120,29 +175,37 @@ const ProductDetails = () => {
             </div>
 
             <p className='text-3xl text-pink-500 '>Add Item</p>
-            < form onSubmit={handleSubmit} >
+            < form onSubmit={handleSubmit} className="grid lg:grid-cols-2 md:grid-cols-2">
 
-                <div className='mx-auto grid w-2/4 my-5 pb-2'>
+                <input label="Name"
+                    type="text"
+                    name="name"
 
+                    defaultValue={user?.displayName} placeholder="Type here" class="input input-bordered input-secondary w-full max-w-xs" />
+                <input label="Name"
 
-                    <input type="text" value={user?.displayName || ''} placeholder="Type Name" className="input input-bordered input-md " />
+                    type="email"
+                    name="email"
 
-                    <input type="text" value={user?.email || ''}
-                        // {...register("text", { required: true })}
-                        placeholder="Type Email Address" className="input input-bordered input-md " />
+                    value={user?.email || ""} placeholder="Type here" class="input input-bordered input-secondary w-full max-w-xs" />
+                <input label="Name"
+                    type="text"
+                    name="product_name"
 
-                    <input type="text" name='address' placeholder="Type Address" className="input input-bordered  input-md" />
-                    <input type="text" name='phone' placeholder="Type phone" className="input input-bordered  input-md" />
-                    <input type="number" name='quantity'
+                    value={product?.name || ""} placeholder="Type Name" class="input input-bordered input-secondary w-full max-w-xs" />
+                <br />
+                <input
+                    label="Name"
+                    type="number"
+                    name="quantity"
 
-                        defaultValue={product?.quantity} className="input input-bordered   w-full max-w-xs" />
+                    defaultValue={product.quantity} placeholder="Type Name " class="input input-bordered input-secondary w-full max-w-xs" />
+                <input label="Name"
+                    type="text"
+                    name="name"
 
-
-
-                    {/* {(inputQuantity > product.avl) ? <button type='submit' disabled className="btn btn-outline btn-primary my-2 ">order</button> : */}
-                    <button type='submit' className="btn btn-outline btn-primary my-2 ">order</button>
-                    {/* } */}
-                </div>
+                    placeholder="Type phone" class="input input-bordered input-secondary w-full max-w-xs" />
+                <button type='submit' class="btn btn-outline my-3 btn-secondary">Purchase</button>
             </form>
         </div>
     );
