@@ -18,7 +18,7 @@ const AddProducts = () => {
         e.preventDefault();
         if (Object.keys(input).length > 0) {
             axios
-                .post("http://localhost:5000/addProduct", input)
+                .post("https://radiant-shelf-15302.herokuapp.com/addProduct", input)
                 .then((res) => {
                     if (res.data.insertedId) {
                         swal({

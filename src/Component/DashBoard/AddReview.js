@@ -19,7 +19,7 @@ const AddReview = () => {
     const handleReview = (e) => {
         let dataValues = { comment: fieldValue, rating: value, userName: user?.displayName };
         e.preventDefault();
-        axios.post(`http://localhost:5000/review`, dataValues)
+        axios.post(`https://radiant-shelf-15302.herokuapp.com/review`, dataValues)
             .then(res => {
                 if (res.data.insertedId) {
                     swal({

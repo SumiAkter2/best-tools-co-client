@@ -13,6 +13,7 @@ const Reviews = () => {
             review: '',
             location: 'California',
             img: man1,
+            comment: 'Great service, Great tools and FAST delivery!! Loved the hammer, now buying more! Happy! Happy!'
         },
         {
             _id: 2,
@@ -20,6 +21,7 @@ const Reviews = () => {
             review: '',
             location: 'Chaina',
             img: man2,
+            comment: 'OMG..great store !!! Found this store while visiting the UK.. '
         },
         {
             _id: 3,
@@ -27,6 +29,7 @@ const Reviews = () => {
             review: '',
             location: 'India',
             img: man3,
+            comment: 'I completely love this site, found it on BEST TOOLS at first now I just order directly through them...'
         },
         {
             _id: 4,
@@ -34,7 +37,8 @@ const Reviews = () => {
             review: '',
             location: 'Paris',
             img: man4,
-        },
+            comment: 'This is my very first order through site, and I am totally and completely satisfied! The tools is great and so are the prices. I will definitely return again and again...'
+        }
     ];
 
     return (

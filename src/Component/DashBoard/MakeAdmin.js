@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 import Users from './Users';
 
 const MakeAdmin = () => {
-    const { data: users, isLoading, } = useQuery('users', () => fetch(`http://localhost:5000/user`, {
+    const { data: users, isLoading, } = useQuery('users', () => fetch(`https://radiant-shelf-15302.herokuapp.com/user`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

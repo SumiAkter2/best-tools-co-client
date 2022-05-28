@@ -8,7 +8,7 @@ const GetReview = () => {
     const [reviews, setReview] = useState([]);
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/review`)
+            .get(`https://radiant-shelf-15302.herokuapp.com/review`)
             .then((res) => {
                 setReview(res.data);
             });

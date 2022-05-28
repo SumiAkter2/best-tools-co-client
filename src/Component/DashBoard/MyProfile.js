@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import ProfileUser from './ProfileUser';
 
 const MyProfile = () => {
-    const { data: users, isLoading, } = useQuery('users', () => fetch(`http://localhost:5000/user`, {
+    const { data: users, isLoading, } = useQuery('users', () => fetch(`https://radiant-shelf-15302.herokuapp.com/user`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,27 +16,27 @@ const MyProfile = () => {
 
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div className='grid grid-cols-5 gap-0 h-16 mx-12 border-2 text-pink-500 font-bold text-lg'>
 
 
-                        {
-                            users?.map((user, index) => <ProfileUser key={user._id}
-                                user={user} index={index}></ProfileUser>)
-                        }
-                    </tbody>
-                </table>
+                <p>   </p>
+
+
+                <p>Email</p>
+                <p>Name</p>
+                <p>Id </p>
+
             </div>
+
+
+
+            {
+                users?.map((user, index) => <ProfileUser key={user._id}
+                    user={user} index={index}></ProfileUser>)
+            }
+
+
+
         </div>
     );
 };

@@ -3,74 +3,82 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import auth from '../../firebase.init';
+import Spinner from '../Spinner';
 import ShowMyItem from './ShowMyItem';
 const MyOrder = () => {
-    const [myItems, setMyItems] = useState([]);
 
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
+    const [product, setProduct] = useState([]);
+    useEffect(() => {
+        const url = `https://radiant-shelf-15302.herokuapp.com/order/${user?.email}`;
 
-    // const [items, setItems] = useItems();
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setProduct(data))
+    }, [user, product])
+    if (loading) {
+        return (<Spinner></Spinner>)
+    }
 
-    // const handleDelete = (id) => {
-    //     const proceed = window.confirm("Are you sure?");
-    //     if (proceed) {
-    //         const url = `https://polar-reef-20310.herokuapp.com/orders/${id}`;
-    //         fetch(url, {
-    //             method: "DELETE",
-    //         })
-    //             .then((res) => res.json())
-    //             .then((data) => {
-    //                 console.log(data);
-    //                 const remaining = myItems.filter((item) => item._id !== id);
-    //                 setMyItems(remaining);
-    //             });
-    // }
-    // };
 
-    // const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     const email = user.email;
+    const handleDelete = (id) => {
+        const proceed = swal({
+            text: "Are you sure to delete this order ?",
+            icon: 'warning',
+        });
+        if (proceed) {
+            const url = `https://radiant-shelf-15302.herokuapp.com/deleteProducts/${id}`;
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    const remaining = product.filter((item) => item._id !== id);
+                    setProduct(remaining);
+                });
+        }
+    };
 
-    //     const getItems = async () => {
-    //         const url = `https://polar-reef-20310.herokuapp.com/orders?email=${email}`;
-    //         try {
-    //             const { data } = await axios.get(url, {
-    //                 headers: {
-    //                     authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    //                 },
-    //             });
-    //             setMyItems(data);
-    //         } catch (error) {
-    //             console.log(error.message);
-    //             if (error.response.status === 403 || error.response.status === 401) {
-    //                 signOut(auth);
-    //                 navigate("/login");
-    //             }
-    //         }
-    //     };
-    //     getItems();
-    // }, [user]);
+
 
     return (
         <div>
-            <h1>My Orders</h1>
-            {myItems.length}
+            <h1 className='text-pink-500 text-left font-bold text-2xl my-4'>My Orders :</h1>
+
             <div>
-                <div className="container">
-                    <div className="AllItems-section mt-5">
-                        {myItems.map((item) => (
-                            <ShowMyItem
-                                key={item._id}
-                                item={item}
-                            // handleDelete={handleDelete}
-                            ></ShowMyItem>
-                        ))}
-                    </div>
+
+                <div className='grid grid-cols-6 gap-0 h-16 mx-12 border-2 text-pink-500 font-bold text-lg'>
+
+                    <p></p>
+                    <p>Name</p>
+                    <p>Quantity</p>
+                    <p>Price </p>
+                    <p>Paid status </p>
+                    <p>Delete </p>
+
                 </div>
+
+                {product.map((item, index) => (
+                    <ShowMyItem
+                        index=
+                        {index}
+                        key={item._id}
+                        item={item}
+                        handleDelete={handleDelete}
+                    ></ShowMyItem>
+                ))}
+
+
+
             </div>
+
         </div>
+
+
     );
 };
 

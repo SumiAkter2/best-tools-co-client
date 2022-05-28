@@ -54,7 +54,7 @@ const SignIn = () => {
 
                         </label>
                         <input
-                            {...register("text", {
+                            {...register("name", {
                                 required: {
                                     value: true,
                                     message: 'Name is required',
@@ -64,9 +64,10 @@ const SignIn = () => {
                             type="text" placeholder="Enter Your Name "
                             className="input input-bordered w-full  max-w-xs" />
                         <label className="label">
-                            {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
-                            {errors.password?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                            {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}
+                            </span>}
                         </label>
+
 
                         {/* Input field */}
                         <div className="form-control w-full max-w-xs">
@@ -90,7 +91,7 @@ const SignIn = () => {
                                 className="input input-bordered w-full   max-w-xs" />
                             <label className="label">
                                 {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt ">{errors.email.message}</span>}
                             </label>
                             {/* Password */}
                             <label className="label">

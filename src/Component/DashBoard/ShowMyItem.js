@@ -1,30 +1,28 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 
-const ShowMyItem = ({ item, handleDelete }) => {
-    const { _id, description, quantity, avl, name, price, picture } = item;
+const ShowMyItem = ({ item, handleDelete, index }) => {
+    const { _id, quantity, price, status, product_name
+    } = item;
 
 
     return (
-        < div className='lg:w-2/4 mx-auto bg-base-200 my-3'>
+        < div className='grid grid-cols-6 gap-0 h-16 mx-12 border-2 '>
 
-            <div className="hero ">
-                <div >
-                    <div className="hero-content flex-col lg:flex-row">
-                        <img src="https://api.lorem.space/image/movie?w=260&h=400" style={{ 'width': '100px' }} alt='tools img' />
-                        <div className='text-left pl-2'>
-                            <p >{description}</p>
-                            <p className="text-xl ">{_id}</p>
 
-                            <p>Price{price}</p>
-                            <p>Min. quantity:{quantity}</p>
-                            <p>Available: {avl} </p>
-                            <button className='btn btn-primary' onClick={() => handleDelete(_id)}>Delete</button>
-                        </div>
-                    </div>
+            < p>{index + 1} </ p>
+            < p>{product_name} </ p>
+            < p>{quantity} </ p>
+            < p>{price} </ p>
 
-                </div>
-            </div>
+            < p>{status} </ p>
+
+            < p>
+                <button className='btn btn-primary' onClick={() => handleDelete(_id)}>x</button>
+
+            </p>
         </div>
     );
 };

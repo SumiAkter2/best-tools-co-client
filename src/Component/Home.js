@@ -4,7 +4,6 @@ import Arrival from './Arrival';
 import Bannar from './Bannar';
 import GetReview from './GetReview';
 import Hotdeels from './Hotdeels';
-import ProductAddForm from './ProductAddForm';
 import Products from './Products';
 import Reviews from './Reviews';
 import Subcrib from './Subcrib';

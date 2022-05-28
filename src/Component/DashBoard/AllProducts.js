@@ -9,7 +9,7 @@ const AllProducts = ({ index, product }) => {
     const handleDelete = (id) => {
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this product!",
+
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -17,7 +17,7 @@ const AllProducts = ({ index, product }) => {
             if (willDelete) {
                 axios
                     .delete(
-                        `http://localhost:5000/deleteProducts/${id}`
+                        `https://radiant-shelf-15302.herokuapp.com/deleteProducts/${id}`
                     )
                     .then((res) => {
                         if (res.data.deletedCount) {

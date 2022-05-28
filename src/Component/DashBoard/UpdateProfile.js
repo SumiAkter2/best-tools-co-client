@@ -17,7 +17,7 @@ const UpdateProfile = () => {
         e.preventDefault();
         if (Object.keys(input).length > 0) {
             axios
-                .post("http://localhost:5000/update", input)
+                .post("https://radiant-shelf-15302.herokuapp.com/update", input)
                 .then((res) => {
                     if (res.data.insertedId) {
                         swal({
@@ -49,7 +49,7 @@ const UpdateProfile = () => {
                     name="name" onChange={getAddProductValue} placeholder="Type Email" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
                 <input label="Product Name"
                     type="text"
-                    name="name" onChange={getAddProductValue} placeholder="Type Product Name" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
+                    name="name" onChange={getAddProductValue} placeholder="Type  Name" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
                 <input label="Short Information"
                     name="short_description" onChange={getAddProductValue} type="text" placeholder="Educational Qualification" class="input pt-3 w-full input-bordered input-secondary max-w-xs" />
                 <div class="form-control w-full max-w-xs">

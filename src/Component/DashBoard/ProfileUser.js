@@ -1,20 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const ProfileUser = ({ user, index }) => {
     const navigate = useNavigate();
     const updateProfile = (id) => {
         navigate('/dashboard/updateprofile');
     }
     return (
-        <div>
-            <tr>
-                <th>{index + 1}</th>
-                <td>{user.email}</td>
-                <td>{user?.displayName}</td>
-                <td>{user._id}</td>
-                <td className='text-right'><button className='btn btn-primary ' onClick={updateProfile}>Update</button></td>
-            </tr>
+        <div className='grid grid-cols-5 gap-0 h-16 mx-12 border-2 '>
+
+            <p>{index + 1}</p>
+            <p>{user.email}</p>
+            <p>{user?.name}  {user?.displayName}</p>
+            <p className='pr-12'>{user._id}</p>
+            <p>
+                <button className='btn btn-primary ' onClick={updateProfile}>Update</button>
+
+            </p>
         </div>
     );
 };
