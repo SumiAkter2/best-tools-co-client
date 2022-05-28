@@ -19,8 +19,8 @@ const CardProduct = ({ product }) => {
                     <h2 className="card-title">{product.name}</h2>
                     <p>{product.description}</p>
                     <p>price:  {product.price} </p>
-                    <p>Quantity: {product.quantity} </p>
-                    <p>Avl: {product.avl} </p>
+                    <p> Minimum Quantity: {product.quantity} </p>
+                    <p>Available: {product.avl} </p>
                     <button onClick={() => handleToDetail(_id)} className="btn btn-primary">Purchase</button>
 
                 </div>
