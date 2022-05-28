@@ -70,7 +70,7 @@ const Navbar = ({ children }) => {
 
                     {children}
                 </div>
-                <div className="drawer-side w-2/4 " >
+                <div className="drawer-side   " >
                     <label for="  my-drawer-3" className="drawer-overlay"></label>
                     <ul className="menu p-2 overflow-y-auto w-80 bg-base-100">
 

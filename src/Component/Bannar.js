@@ -1,5 +1,5 @@
 import React from 'react';
-import banner from '../asset/ronix-tools-Nn2mg1lUbZc-unsplash.jpg'
+// import banner from '../asset/ronix-tools-Nn2mg1lUbZc-unsplash.jpg'
 import img1 from '../asset/img19.jpg'
 import img11 from '../asset/img8.jpg'
 import img12 from '../asset/img15.jpg'
@@ -28,24 +28,24 @@ const Bannar = () => {
 
                     <figure >
                         <img style={{ 'height': '150px' }} src={img11} alt="Shoes" className='rounded-2xl' />
-                        <h1>Driller</h1>
+                        <h1>Customizable wrench</h1>
                     </figure>
 
 
 
                     <figure >
                         <img style={{ 'height': '150px' }} src={img12} alt="Shoes" className='rounded - 2xl' />
-                        <h1>Driller</h1>
+                        <h1>Electric saw</h1>
                     </figure>
 
                     <figure >
                         <img style={{ 'height': '150px' }} src={img7} alt="Shoes" className='rounded-2xl' />
-                        <h1>Driller</h1>
+                        <h1>Hammer</h1>
                     </figure>
 
                     <figure >
                         <img style={{ 'height': '150px' }} src={img1} alt="Shoes" className='rounded-2xl' />
-                        <h1>Driller</h1>
+                        <h1>Electric Driller</h1>
                     </figure>
 
                 </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Spinner from './Spinner';
 import swal from 'sweetalert';
@@ -7,73 +7,19 @@ import axios from 'axios';
 import auth from '../firebase.init';
 import { toast } from 'react-toastify';
 
-
-// const [user] = useAuthState();
-// const { productId } = useParams();
-// const [product, setProduct] = useState([]);
-// const values = { name: user?.displayName };
-// const [fieldValue, setFieldVAlue] = useState(values);
-// const handleChange = (e) => {
-//     const field = e.target.name;
-//     const value = e.target.value;
-//     const newValue = { ...fieldValue };
-//     newValue[field] = value;
-//     setFieldVAlue(newValue);
-// };
-// const handleSubmit = (e) => {
-//     const dataVAlue = {
-//         ...fieldValue,
-//         product_name: product.name,
-//         price: product.price,
-//         number: fieldValue.number,
-//         email: user?.email,
-//         status: "Pending",
-//     };
-
-// axios
-//     .post(
-//         `https://radiant-shelf-15302.herokuapp.com/products/${productId}`,
-//         dataVAlue
-//     )
-//     .then((res) => {
-//         if (res.data.insertedId) {
-//             swal({
-//                 text: "Purchase Successful",
-//                 icon: "success",
-//             });
-//             e.target.reset();
-//             setFieldVAlue({});
-//         }
-//     });
-
-//     e.preventDefault();
-// };
-
-
-
-
-
-
-
-
-
-
-
-
 const ProductDetails = () => {
     const [user, loading, error] = useAuthState(auth);
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
-    // const [quantity, setQuantity] = useState('')
-
-
-
+    const navigate = useNavigate();
     const handleSubmit = e => {
         e.preventDefault();
+
         let minQuantity = product?.quantity;
         let avlQuantity = product?.avl;
         let inputQuantity = e.target.quantity.value;
         console.log(inputQuantity,);
+
         if (inputQuantity < minQuantity) {
             return swal({
                 text: "Quantity can not be less then Min.Quantity.Please insert valid number of quantity",
@@ -117,6 +63,7 @@ const ProductDetails = () => {
                 }
             })
         setProduct('')
+        navigate('/dashboard/order')
     }
 
     useEffect(() => {
@@ -135,14 +82,7 @@ const ProductDetails = () => {
 
 
 
-    // disabled={quantity < (product.quantity) || quantity > (product.avl)}  
-
-    // let minQuantity = product?.quantity;
-    // let avlQuantity = product?.avl;
-    // let inputQuantity = e.target.quantity.value;
-
-    // console.log(product.picture);
-
+    // disabled={quantity < (product.quantity) || quantity > (product.avl)
 
 
     // console.log(inputQuantity);

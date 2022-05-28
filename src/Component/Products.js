@@ -15,7 +15,7 @@ const Products = () => {
     if (products.length === 0) {
         return (<Spinner></Spinner>)
     }
-    // https://polar-reef-20310.herokuapp.com/products
+
     return (
         <div className='my-12'>
             <h1 className='text-3xl'>Available Products</h1>

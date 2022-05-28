@@ -16,7 +16,7 @@ const DashBoard = () => {
                     <Outlet></Outlet>
                     <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div>
-                <div class="drawer-side w-2/4 lg:w-full">
+                <div class="drawer-side  ">
                     <label for="my-drawer-2" class="drawer-overlay"></label>
                     <ul class="menu p-4 overflow-y-auto  bg-base-200 text-pink-500">
                         <li><Link to="/dashboard" >My profile</Link>
